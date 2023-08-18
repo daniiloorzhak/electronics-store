@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet id="create-window-product-table" author="daniil">
+        <createTable tableName="window_product">
+            <column name="window_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="window_product"
+                       columnNames="window_id, product_id"
+                       constraintName="pk_window_product_constraint"/>
+        <addForeignKeyConstraint baseTableName="window_product"
+                                 baseColumnNames="window_id"
+                                 constraintName="fk_wp_window"
+                                 referencedTableName="window"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="window_product"
+                                 baseColumnNames="product_id"
+                                 constraintName="fk_wp_product"
+                                 referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
