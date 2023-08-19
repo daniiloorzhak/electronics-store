@@ -1,0 +1,6 @@
+id,position,name,type,price,created_at,updated_at
+1,1,Intel Core i9-13900K BOX,processor,6999900,2023-08-19 10:23:54,2023-08-19 10:23:54
+2,2,AMD Ryzen 5 5600g OEM,processor,1259900,2023-08-19 10:24:54,2023-08-19 10:24:54
+3,3,Intel Core i5-12400F OEM,processor,1719900,2023-08-19 11:23:54,2023-08-19 10:24:54
+4,4,Intel Core i3-12100F OEM,processor,939900,2023-08-19 14:23:54,2023-08-19 10:24:54
+5,5,AMD Ryzen 5 3600 OEM,processor,879900,2023-08-19 14:23:54,2023-08-19 10:24:54
