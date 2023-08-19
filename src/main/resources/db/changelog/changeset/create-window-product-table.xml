@@ -17,12 +17,12 @@
         <addForeignKeyConstraint baseTableName="window_product"
                                  baseColumnNames="window_id"
                                  constraintName="fk_wp_window"
-                                 referencedTableName="window"
+                                 referencedTableName="windows"
                                  referencedColumnNames="id"/>
         <addForeignKeyConstraint baseTableName="window_product"
                                  baseColumnNames="product_id"
                                  constraintName="fk_wp_product"
-                                 referencedTableName="product"
+                                 referencedTableName="products"
                                  referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>

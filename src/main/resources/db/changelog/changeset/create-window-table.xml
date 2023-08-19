@@ -3,11 +3,14 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet id="create-product-table" author="daniil">
-        <createTable tableName="window">
-            <column name="id" type="uuid">
+        <createTable tableName="windows">
+            <column name="id" type="uuid" defaultValueComputed="gen_random_uuid()">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="type" type="varchar(255)">
