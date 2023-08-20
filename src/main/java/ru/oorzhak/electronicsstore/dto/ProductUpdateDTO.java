@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 
 @Data
 public class ProductUpdateDTO {
@@ -15,7 +14,7 @@ public class ProductUpdateDTO {
     private String name;
     @NotBlank
     private String type;
-    @Null
+    @NotNull
     @Min(0)
-    private Double price;
+    private Long price;
 }

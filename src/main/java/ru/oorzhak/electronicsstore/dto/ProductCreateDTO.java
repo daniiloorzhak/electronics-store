@@ -5,20 +5,19 @@ import lombok.Data;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
+import java.util.UUID;
 
 @Data
 public class ProductCreateDTO {
     @NotNull
-    @Min(1)
-    private Long windowId;
+    private UUID windowId;
     @NotNull
     private Long position;
     @NotBlank
     private String name;
     @NotBlank
     private String type;
-    @Null
-    @Min(0)
-    private Double price;
+    @NotNull
+    @Min(1)
+    private Long price;
 }
