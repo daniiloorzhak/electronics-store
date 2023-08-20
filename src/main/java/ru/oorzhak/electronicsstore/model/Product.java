@@ -1,5 +1,7 @@
 package ru.oorzhak.electronicsstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,6 +13,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,25 +25,21 @@ public class Product {
     @NotNull
     private Long position;
     @NotBlank
-    @NotNull
     private String name;
     @NotBlank
-    @NotNull
     private String type;
     @NotNull
-    @Min(0)
-    private Double price;
+    @Min(1)
+    private Long price;
     @CreationTimestamp
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
     @UpdateTimestamp
-    @Column(nullable = false)
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @ManyToOne(cascade = {
-            CascadeType.REMOVE,
-            CascadeType.REFRESH
-    })
+    @JsonIgnore
+    @ManyToOne
     @JoinTable(name = "window_product",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "window_id"))
